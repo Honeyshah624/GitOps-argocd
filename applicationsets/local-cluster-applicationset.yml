@@ -3,6 +3,7 @@ kind: ApplicationSet
 metadata:
   name: local-cluster-apps
   namespace: argocd
+
 spec:
   generators:
     - list:
@@ -28,6 +29,7 @@ spec:
   template:
     metadata:
       name: "{{appName}}"
+
     spec:
       project: default
 
