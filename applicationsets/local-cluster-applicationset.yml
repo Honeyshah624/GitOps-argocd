@@ -12,19 +12,19 @@ spec:
             repoURL: https://github.com/Honeyshah624/MordenChair.git
             chartPath: modern-chair-chart
             namespace: modern-chair
-            valuesFile: clusters/local-minikube/modern-chair-values.yaml
+            valuesFile: clusters/local-minikube/modern-chair-values.yml
 
           - appName: weather-app
             repoURL: https://github.com/Honeyshah624/Weather-app.git
             chartPath: weather-app-chart
             namespace: weather-app
-            valuesFile: clusters/local-minikube/weather-app-values.yaml
+            valuesFile: clusters/local-minikube/weather-app-values.yml
 
           - appName: tic-tac-toe
             repoURL: https://github.com/Honeyshah624/Tic-tac-toe.git
             chartPath: tic-tac-toe-chart
             namespace: tic-tac-toe
-            valuesFile: clusters/local-minikube/tic-tac-toe-values.yaml
+            valuesFile: clusters/local-minikube/tic-tac-toe-values.yml
 
   template:
     metadata:
