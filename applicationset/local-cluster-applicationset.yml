@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: three-apps-deployment
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - appName: modern-chair
+            repoURL: https://github.com/Honeyshah624/MordenChair.git
+            appPath: modern-chair-chart
+            namespace: modern-chair
+
+          - appName: weather-app
+            repoURL: https://github.com/Honeyshah624/Weather-app.git
+            appPath: weather-app-chart
+            namespace: weather-app
+
+          - appName: tic-tac-toe
+            repoURL: https://github.com/Honeyshah624/Tic-tac-toe.git
+            appPath: tic-tac-toe-chart
+            namespace: tic-tac-toe
+
+  template:
+    metadata:
+      name: "{{appName}}"
+    spec:
+      project: default
+
+      source:
+        repoURL: "{{repoURL}}"
+        targetRevision: HEAD
+        path: "{{appPath}}"
+        helm:
+          releaseName: "{{appName}}"
+
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "{{namespace}}"
+
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
