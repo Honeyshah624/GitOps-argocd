@@ -1,4 +1,3 @@
-replicaCount: 3
-
+replicaCount: 2
 ingress:
   host: tic-tac-toe.local
