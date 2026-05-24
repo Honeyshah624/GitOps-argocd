@@ -1,0 +1,4 @@
+replicaCount: 2
+
+ingress:
+  host: practice-staging-tic-tac-toe.local

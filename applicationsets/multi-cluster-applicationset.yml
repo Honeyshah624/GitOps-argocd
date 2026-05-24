@@ -1,0 +1,88 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: practice-multi-cluster-apps
+  namespace: argocd
+
+spec:
+  generators:
+    - list:
+        elements:
+          - clusterName: practice-dev-cluster
+            env: practice-dev
+            appName: modern-chair
+            repoURL: https://github.com/Honeyshah624/MordenChair.git
+            chartPath: modern-chair-chart
+            namespace: practice-dev-modern-chair
+            valuesFile: clusters/practice-dev-cluster/modern-chair-values.yml
+
+          - clusterName: practice-dev-cluster
+            env: practice-dev
+            appName: weather-app
+            repoURL: https://github.com/Honeyshah624/Weather-app.git
+            chartPath: weather-app-chart
+            namespace: practice-dev-weather-app
+            valuesFile: clusters/practice-dev-cluster/weather-app-values.yml
+
+          - clusterName: practice-dev-cluster
+            env: practice-dev
+            appName: tic-tac-toe
+            repoURL: https://github.com/Honeyshah624/Tic-tac-toe.git
+            chartPath: tic-tac-toe-chart
+            namespace: practice-dev-tic-tac-toe
+            valuesFile: clusters/practice-dev-cluster/tic-tac-toe-values.yml
+
+          - clusterName: practice-staging-cluster
+            env: practice-staging
+            appName: modern-chair
+            repoURL: https://github.com/Honeyshah624/MordenChair.git
+            chartPath: modern-chair-chart
+            namespace: practice-staging-modern-chair
+            valuesFile: clusters/practice-staging-cluster/modern-chair-values.yml
+
+          - clusterName: practice-staging-cluster
+            env: practice-staging
+            appName: weather-app
+            repoURL: https://github.com/Honeyshah624/Weather-app.git
+            chartPath: weather-app-chart
+            namespace: practice-staging-weather-app
+            valuesFile: clusters/practice-staging-cluster/weather-app-values.yml
+
+          - clusterName: practice-staging-cluster
+            env: practice-staging
+            appName: tic-tac-toe
+            repoURL: https://github.com/Honeyshah624/Tic-tac-toe.git
+            chartPath: tic-tac-toe-chart
+            namespace: practice-staging-tic-tac-toe
+            valuesFile: clusters/practice-staging-cluster/tic-tac-toe-values.yml
+
+  template:
+    metadata:
+      name: "{{env}}-{{appName}}"
+
+    spec:
+      project: default
+
+      sources:
+        - repoURL: "{{repoURL}}"
+          targetRevision: HEAD
+          path: "{{chartPath}}"
+          helm:
+            releaseName: "{{env}}-{{appName}}"
+            valueFiles:
+              - $values/{{valuesFile}}
+
+        - repoURL: https://github.com/Honeyshah624/GitOps-argocd.git
+          targetRevision: HEAD
+          ref: values
+
+      destination:
+        name: "{{clusterName}}"
+        namespace: "{{namespace}}"
+
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
