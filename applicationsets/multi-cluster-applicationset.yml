@@ -8,7 +8,7 @@ spec:
   generators:
     - list:
         elements:
-          - clusterName: practice-dev-cluster
+          - clusterName: dev-cluster
             env: practice-dev
             appName: modern-chair
             repoURL: https://github.com/Honeyshah624/MordenChair.git
@@ -16,7 +16,7 @@ spec:
             namespace: practice-dev-modern-chair
             valuesFile: clusters/practice-dev-cluster/modern-chair-values.yml
 
-          - clusterName: practice-dev-cluster
+          - clusterName: dev-cluster
             env: practice-dev
             appName: weather-app
             repoURL: https://github.com/Honeyshah624/Weather-app.git
@@ -24,7 +24,7 @@ spec:
             namespace: practice-dev-weather-app
             valuesFile: clusters/practice-dev-cluster/weather-app-values.yml
 
-          - clusterName: practice-dev-cluster
+          - clusterName: dev-cluster
             env: practice-dev
             appName: tic-tac-toe
             repoURL: https://github.com/Honeyshah624/Tic-tac-toe.git
@@ -32,7 +32,7 @@ spec:
             namespace: practice-dev-tic-tac-toe
             valuesFile: clusters/practice-dev-cluster/tic-tac-toe-values.yml
 
-          - clusterName: practice-staging-cluster
+          - clusterName: staging-cluster
             env: practice-staging
             appName: modern-chair
             repoURL: https://github.com/Honeyshah624/MordenChair.git
@@ -40,7 +40,7 @@ spec:
             namespace: practice-staging-modern-chair
             valuesFile: clusters/practice-staging-cluster/modern-chair-values.yml
 
-          - clusterName: practice-staging-cluster
+          - clusterName: staging-cluster
             env: practice-staging
             appName: weather-app
             repoURL: https://github.com/Honeyshah624/Weather-app.git
@@ -48,7 +48,7 @@ spec:
             namespace: practice-staging-weather-app
             valuesFile: clusters/practice-staging-cluster/weather-app-values.yml
 
-          - clusterName: practice-staging-cluster
+          - clusterName: staging-cluster
             env: practice-staging
             appName: tic-tac-toe
             repoURL: https://github.com/Honeyshah624/Tic-tac-toe.git
