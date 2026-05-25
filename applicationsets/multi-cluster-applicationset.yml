@@ -14,7 +14,7 @@ spec:
             repoURL: https://github.com/Honeyshah624/MordenChair.git
             chartPath: modern-chair-chart
             namespace: practice-dev-modern-chair
-            valuesFile: clusters/practice-dev-cluster/modern-chair-values.yml
+            valuesFile: clusters/dev-cluster/modern-chair-values.yml
 
           - clusterName: dev-cluster
             env: practice-dev
@@ -22,7 +22,7 @@ spec:
             repoURL: https://github.com/Honeyshah624/Weather-app.git
             chartPath: weather-app-chart
             namespace: practice-dev-weather-app
-            valuesFile: clusters/practice-dev-cluster/weather-app-values.yml
+            valuesFile: clusters/dev-cluster/weather-app-values.yml
 
           - clusterName: dev-cluster
             env: practice-dev
@@ -30,7 +30,7 @@ spec:
             repoURL: https://github.com/Honeyshah624/Tic-tac-toe.git
             chartPath: tic-tac-toe-chart
             namespace: practice-dev-tic-tac-toe
-            valuesFile: clusters/practice-dev-cluster/tic-tac-toe-values.yml
+            valuesFile: clusters/dev-cluster/tic-tac-toe-values.yml
 
           - clusterName: staging-cluster
             env: practice-staging
@@ -38,7 +38,7 @@ spec:
             repoURL: https://github.com/Honeyshah624/MordenChair.git
             chartPath: modern-chair-chart
             namespace: practice-staging-modern-chair
-            valuesFile: clusters/practice-staging-cluster/modern-chair-values.yml
+            valuesFile: clusters/staging-cluster/modern-chair-values.yml
 
           - clusterName: staging-cluster
             env: practice-staging
@@ -46,7 +46,7 @@ spec:
             repoURL: https://github.com/Honeyshah624/Weather-app.git
             chartPath: weather-app-chart
             namespace: practice-staging-weather-app
-            valuesFile: clusters/practice-staging-cluster/weather-app-values.yml
+            valuesFile: clusters/staging-cluster/weather-app-values.yml
 
           - clusterName: staging-cluster
             env: practice-staging
@@ -54,7 +54,7 @@ spec:
             repoURL: https://github.com/Honeyshah624/Tic-tac-toe.git
             chartPath: tic-tac-toe-chart
             namespace: practice-staging-tic-tac-toe
-            valuesFile: clusters/practice-staging-cluster/tic-tac-toe-values.yml
+            valuesFile: clusters/staging-cluster/tic-tac-toe-values.yml
 
   template:
     metadata:
