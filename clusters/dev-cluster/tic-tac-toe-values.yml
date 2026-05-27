@@ -1,4 +1,0 @@
-replicaCount: 1
-
-ingress:
-  host: practice-dev-tic-tac-toe.local
